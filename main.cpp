@@ -12,7 +12,7 @@ int main (int argc, char *argv[])
     auto dur = (double) std::chrono::high_resolution_clock::period::num
              / std::chrono::high_resolution_clock::period::den;
 
-    std::cout << "The period of the clock tick for std::chrono::high_resolution_clock in seconds is " << num << "/" << den << ". ";;
+    std::cout << "The period of the clock tick for std::chrono::high_resolution_clock in seconds is " << num << "/" << den << ". ";
 
     std::cout << "This means the minimum representable duration is " << dur << " seconds, which is " << dur * 1e9 << " nanosecond(s)." << std::endl;
 
@@ -42,5 +42,7 @@ int main (int argc, char *argv[])
     std::cout << "Over " << n << " calls to now(), the min/avg/max observed delta was " << std::endl <<
         min_delta.count() << "/" << avg_delta.count() << "/" << max_delta.count() << " seconds, or " << std::endl <<
         min_ns << "/" << avg_ns<< "/" << max_ns << " nanoseconds." << std::endl;
+
+    std::cout << "Note that this code makes no attempt to optimize the loop that reads the clock, aside from enabling -O3." << std::endl;
 }
 
